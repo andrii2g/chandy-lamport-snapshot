@@ -1,0 +1,16 @@
+{
+  "name": "Markers capture money between local cuts", "seed": 7,
+  "processes": [{"id":"A","balance":100},{"id":"B","balance":100},{"id":"C","balance":100}],
+  "channels": [
+    {"from":"A","to":"B","delay":10},{"from":"B","to":"A","delay":3},
+    {"from":"B","to":"C","delay":2},{"from":"C","to":"B","delay":2},
+    {"from":"C","to":"A","delay":2},{"from":"A","to":"C","delay":2}
+  ],
+  "transfers": [
+    {"at":1,"from":"A","to":"B","amount":10},
+    {"at":6,"from":"B","to":"C","amount":7},
+    {"at":8,"from":"C","to":"A","amount":4},
+    {"at":9,"from":"A","to":"B","amount":3}
+  ],
+  "snapshot": {"at":3,"initiator":"C"}
+}

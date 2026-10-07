@@ -1,0 +1,21 @@
+{
+  "name": "Four processes with seeded FIFO jitter", "seed": 42,
+  "processes": [{"id":"A","balance":100},{"id":"B","balance":100},{"id":"C","balance":100},{"id":"D","balance":100}],
+  "channels": [
+    {"from":"A","to":"B","delay":2,"jitter":8},{"from":"B","to":"A","delay":3,"jitter":5},
+    {"from":"B","to":"C","delay":2,"jitter":6},{"from":"C","to":"B","delay":2,"jitter":8},
+    {"from":"C","to":"D","delay":3,"jitter":7},{"from":"D","to":"C","delay":2,"jitter":5},
+    {"from":"D","to":"A","delay":2,"jitter":8},{"from":"A","to":"D","delay":3,"jitter":6}
+  ],
+  "transfers": [
+    {"at":1,"from":"A","to":"B","amount":15},{"at":2,"from":"B","to":"C","amount":10},
+    {"at":3,"from":"C","to":"D","amount":12},{"at":4,"from":"D","to":"A","amount":8},
+    {"at":5,"from":"A","to":"B","amount":7},{"at":6,"from":"B","to":"A","amount":11},
+    {"at":7,"from":"C","to":"B","amount":9},{"at":8,"from":"D","to":"C","amount":6},
+    {"at":9,"from":"A","to":"D","amount":5},{"at":10,"from":"B","to":"C","amount":13},
+    {"at":11,"from":"C","to":"D","amount":4},{"at":12,"from":"D","to":"A","amount":10},
+    {"at":15,"from":"A","to":"B","amount":20},{"at":16,"from":"B","to":"C","amount":17},
+    {"at":17,"from":"C","to":"D","amount":14},{"at":18,"from":"D","to":"A","amount":16}
+  ],
+  "snapshot": {"at":5,"initiator":"A"}
+}
